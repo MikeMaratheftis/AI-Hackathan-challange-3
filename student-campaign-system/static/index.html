@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude for Students - License Allocation System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <span class="logo">🤖</span>
+                    <span class="brand-text">Claude for Students</span>
+                </div>
+                <div class="nav-menu">
+                    <button class="nav-btn" onclick="switchRole('student')">Student Portal</button>
+                    <button class="nav-btn" onclick="switchRole('admin')">Admin Dashboard</button>
+                    <button class="nav-btn logout">Sign Out</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Student Portal -->
+        <div id="student-portal" class="portal">
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" onclick="switchStudentTab('application-form')">Apply</button>
+                <button class="tab-btn" onclick="switchStudentTab('application-status')">My Application</button>
+                <button class="tab-btn" onclick="switchStudentTab('progress-report')">Progress Report</button>
+            </div>
+
+            <!-- Application Form Tab -->
+            <div id="application-form" class="tab-content active">
+                <div class="container">
+                    <h1>Apply for Claude License</h1>
+                    <form id="applicationForm" class="form-section">
+                        <!-- Personal Information -->
+                        <fieldset>
+                            <legend>📋 Personal Information</legend>
+                            <div class="form-group">
+                                <label for="fullName">Full Name:</label>
+                                <input type="text" id="fullName" placeholder="Jane Doe" value="Jane Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <div class="input-with-badge">
+                                    <input type="email" id="email" placeholder="jane.doe@mit.edu" value="jane.doe@mit.edu">
+                                    <span class="badge verified">✓ .edu verified</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="institution">Institution:</label>
+                                <select id="institution">
+                                    <option value="">Select Institution</option>
+                                    <option value="MIT" selected>Massachusetts Institute of Technology</option>
+                                    <option value="Stanford">Stanford University</option>
+                                    <option value="Berkeley">University of California, Berkeley</option>
+                                    <option value="Harvard">Harvard University</option>
+                                    <option value="UCLA">University of California, Los Angeles</option>
+                                </select>
+                            </div>
+                        </fieldset>
+
+                        <!-- Academic Information -->
+                        <fieldset>
+                            <legend>🎓 Academic Information</legend>
+                            <div class="form-group">
+                                <label for="degreeProgram">Degree Program:</label>
+                                <select id="degreeProgram">
+                                    <option value="">Select Program</option>
+                                    <option value="Computer Science" selected>Computer Science</option>
+                                    <option value="Physics">Physics</option>
+                                    <option value="Biology">Biology</option>
+                                    <option value="Economics">Economics</option>
+                                    <option value="History">History</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Degree Level:</label>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="degreeLevel" value="undergraduate"> Undergraduate</label>
+                                    <label><input type="radio" name="degreeLevel" value="graduate" checked> Graduate</label>
+                                    <label><input type="radio" name="degreeLevel" value="phd"> PhD</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Year:</label>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="year" value="1"> Freshman</label>
+                                    <label><input type="radio" name="year" value="2"> Sophomore</label>
+                                    <label><input type="radio" name="year" value="3"> Junior</label>
+                                    <label><input type="radio" name="year" value="4"> Senior</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label><input type="checkbox" id="financialAid" checked> I receive financial aid</label>
+                            </div>
+                            <div class="form-group">
+                                <label><input type="checkbox" id="firstGen"> I am a first-generation student</label>
+                            </div>
+                        </fieldset>
+
+                        <!-- Objective -->
+                        <fieldset>
+                            <legend>🎯 Your Objective</legend>
+                            <div class="form-group">
+                                <label for="objective">Describe how you plan to use Claude (minimum 50 characters):</label>
+                                <textarea id="objective" rows="5" placeholder="I plan to use Claude to...">I plan to use Claude to assist with my research on natural language processing and machine learning. Specifically, I want to leverage Claude's capabilities to help me understand complex NLP concepts, debug my code, and generate test cases for my thesis project on sentiment analysis using transformer models.</textarea>
+                                <div class="char-counter">
+                                    <span id="charCount">287</span>/500 characters
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="useCase">Use Case Category:</label>
+                                <select id="useCase">
+                                    <option value="">Select Category</option>
+                                    <option value="Research">Research</option>
+                                    <option value="Thesis" selected>Thesis</option>
+                                    <option value="Project">Project</option>
+                                    <option value="Coursework">Coursework</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Prior Claude Experience:</label>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="claudeExp" value="experienced"> Extensive - I use Claude regularly</label>
+                                    <label><input type="radio" name="claudeExp" value="moderate" checked> Moderate - I've used Claude occasionally</label>
+                                    <label><input type="radio" name="claudeExp" value="beginner"> Beginner - I'm new to Claude</label>
+                                    <label><input type="radio" name="claudeExp" value="none"> None - I haven't used Claude yet</label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <button type="button" class="btn btn-primary" onclick="submitApplication()">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Application Status Tab -->
+            <div id="application-status" class="tab-content">
+                <div class="container">
+                    <h1>My Application</h1>
+                    <div class="status-header">
+                        <div class="status-badge approved">✅ APPROVED</div>
+                        <div class="status-date">Applied: January 10, 2025</div>
+                    </div>
+
+                    <!-- Score Breakdown -->
+                    <div class="card">
+                        <h2>📊 Score Breakdown</h2>
+                        <div class="score-total">Total: <span class="score-value">78</span>/100</div>
+                        
+                        <div class="score-item">
+                            <div class="score-label">Degree Relevance</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%"></div>
+                            </div>
+                            <div class="score-points">30/30 points</div>
+                        </div>
+
+                        <div class="score-item">
+                            <div class="score-label">Objective Quality</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 88%"></div>
+                            </div>
+                            <div class="score-points">22/25 points</div>
+                        </div>
+
+                        <div class="score-item">
+                            <div class="score-label">Academic Standing</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%"></div>
+                            </div>
+                            <div class="score-points">20/20 points</div>
+                        </div>
+
+                        <div class="score-item">
+                            <div class="score-label">Demonstrated Need</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 27%"></div>
+                            </div>
+                            <div class="score-points">4/15 points</div>
+                        </div>
+
+                        <div class="score-item">
+                            <div class="score-label">Claude Familiarity</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 70%"></div>
+                            </div>
+                            <div class="score-points">7/10 points</div>
+                        </div>
+
+                        <div class="score-summary">
+                            <div>Cutoff Score: <strong>60</strong></div>
+                            <div>Your Score: <strong>78</strong></div>
+                            <div>Status: <strong style="color: #10b981">✅ APPROVED</strong></div>
+                        </div>
+                    </div>
+
+                    <!-- License Details -->
+                    <div class="card">
+                        <h2>🔑 License Details</h2>
+                        <div class="license-info">
+                            <div class="info-row">
+                                <span class="label">License ID:</span>
+                                <span class="value">CLAUDE-STU-2025-ABC123</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">Status:</span>
+                                <span class="value"><span class="status-dot active"></span> ACTIVE</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">Start Date:</span>
+                                <span class="value">January 20, 2025</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">Expiration Date:</span>
+                                <span class="value">April 20, 2025</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">Days Remaining:</span>
+                                <span class="value">85 days</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">Extensions Used:</span>
+                                <span class="value">0/3</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary" onclick="switchStudentTab('progress-report')">Submit Progress Report for Extension</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Report Tab -->
+            <div id="progress-report" class="tab-content">
+                <div class="container">
+                    <h1>Submit Progress Report</h1>
+                    <div class="license-info-bar">
+                        <div>License: <strong>CLAUDE-STU-2025-ABC123</strong></div>
+                        <div>Current Expiration: <strong>April 20, 2025</strong></div>
+                        <div>Extensions Available: <strong>3</strong></div>
+                    </div>
+
+                    <form id="progressForm" class="form-section">
+                        <fieldset>
+                            <legend>📝 Project Description (minimum 100 characters)</legend>
+                            <textarea id="projectDesc" rows="5" placeholder="Describe your progress...">I have successfully used Claude to help me understand transformer architectures and debug my sentiment analysis model. I created a comprehensive test suite with Claude's assistance, achieving 92% accuracy on my validation dataset. The model is now ready for thesis submission.</textarea>
+                            <div class="char-counter">
+                                <span id="descCharCount">287</span>/1000 characters
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>💡 How did you use Claude? (specific examples)</legend>
+                            <textarea id="claudeUsage" rows="4" placeholder="List specific examples...">• Used Claude to explain attention mechanisms in transformers
+• Reviewed my Python code for bugs and optimization
+• Generated edge case test scenarios for my model
+• Discussed different approaches to sentiment classification
+• Got help debugging CUDA memory issues</textarea>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>🎯 Outcomes/Deliverables Achieved</legend>
+                            <textarea id="outcomes" rows="4" placeholder="List outcomes...">• Completed sentiment analysis model with 92% accuracy
+• Wrote 50-page thesis chapter on NLP techniques
+• Published preliminary results in conference proceedings
+• Created reusable code library for future projects</textarea>
+                        </fieldset>
+
+                        <div class="form-group">
+                            <label><input type="checkbox" checked> I confirm this report accurately reflects my progress</label>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" onclick="submitProgressReport()">Submit Progress Report</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Dashboard -->
+        <div id="admin-dashboard" class="portal" style="display: none;">
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" onclick="switchAdminTab('overview')">Overview</button>
+                <button class="tab-btn" onclick="switchAdminTab('applications')">Applications</button>
+                <button class="tab-btn" onclick="switchAdminTab('configuration')">Configuration</button>
+            </div>
+
+            <!-- Overview Tab -->
+            <div id="overview" class="tab-content active">
+                <div class="container">
+                    <h1>Dashboard Overview</h1>
+                    <div class="date-display">January 2025</div>
+
+                    <!-- Statistics Cards -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">1,247</div>
+                            <div class="stat-label">Total Applications</div>
+                        </div>
+                        <div class="stat-card approved">
+                            <div class="stat-number">892</div>
+                            <div class="stat-label">Approved (71.5%)</div>
+                        </div>
+                        <div class="stat-card rejected">
+                            <div class="stat-number">289</div>
+                            <div class="stat-label">Rejected (23.2%)</div>
+                        </div>
+                        <div class="stat-card waitlisted">
+                            <div class="stat-number">66</div>
+                            <div class="stat-label">Waitlisted (5.3%)</div>
+                        </div>
+                    </div>
+
+                    <!-- License Inventory -->
+                    <div class="card">
+                        <h2>📦 License Inventory</h2>
+                        <div class="inventory-stats">
+                            <div class="inventory-row">
+                                <span>Total Allocated:</span>
+                                <strong>892</strong>
+                            </div>
+                            <div class="inventory-row">
+                                <span>Active:</span>
+                                <strong>845</strong>
+                            </div>
+                            <div class="inventory-row">
+                                <span>Expired:</span>
+                                <strong>47</strong>
+                            </div>
+                            <div class="inventory-row">
+                                <span>Available:</span>
+                                <strong>108</strong>
+                            </div>
+                            <div class="inventory-row">
+                                <span>Total Pool:</span>
+                                <strong>1000</strong>
+                            </div>
+                        </div>
+                        <div class="progress-bar large">
+                            <div class="progress-fill" style="width: 89.2%"></div>
+                        </div>
+                        <div class="progress-label">89.2% Utilized</div>
+                    </div>
+
+                    <!-- Score Distribution -->
+                    <div class="card">
+                        <h2>📊 Score Distribution</h2>
+                        <div class="chart-container">
+                            <canvas id="scoreChart"></canvas>
+                        </div>
+                        <div class="chart-stats">
+                            <div>Average Score: <strong>62.4</strong></div>
+                            <div>Median: <strong>58</strong></div>
+                            <div>Std Dev: <strong>15.2</strong></div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Applications -->
+                    <div class="card">
+                        <h2>📋 Recent Applications</h2>
+                        <table class="applications-table">
+                            <thead>
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Institution</th>
+                                    <th>Score</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Emily Davis</td>
+                                    <td>Columbia</td>
+                                    <td>81</td>
+                                    <td><span class="badge approved">✅ Approved</span></td>
+                                    <td>Jan 25</td>
+                                </tr>
+                                <tr>
+                                    <td>Sarah Williams</td>
+                                    <td>Harvard</td>
+                                    <td>72</td>
+                                    <td><span class="badge approved">✅ Approved</span></td>
+                                    <td>Jan 23</td>
+                                </tr>
+                                <tr>
+                                    <td>Alex Johnson</td>
+                                    <td>Berkeley</td>
+                                    <td>65</td>
+                                    <td><span class="badge approved">✅ Approved</span></td>
+                                    <td>Jan 22</td>
+                                </tr>
+                                <tr>
+                                    <td>Mike Brown</td>
+                                    <td>UCLA</td>
+                                    <td>58</td>
+                                    <td><span class="badge waitlisted">⏳ Waitlisted</span></td>
+                                    <td>Jan 20</td>
+                                </tr>
+                                <tr>
+                                    <td>John Smith</td>
+                                    <td>Stanford</td>
+                                    <td>45</td>
+                                    <td><span class="badge rejected">❌ Rejected</span></td>
+                                    <td>Jan 19</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Applications Tab -->
+            <div id="applications" class="tab-content">
+                <div class="container">
+                    <h1>Applications Management</h1>
+                    
+                    <!-- Filters -->
+                    <div class="filters-section">
+                        <select id="statusFilter" onchange="filterApplications()">
+                            <option value="">Status: All</option>
+                            <option value="approved">Approved</option>
+                            <option value="rejected">Rejected</option>
+                            <option value="waitlisted">Waitlisted</option>
+                        </select>
+                        <select id="degreeFilter" onchange="filterApplications()">
+                            <option value="">Degree: All</option>
+                            <option value="STEM">STEM</option>
+                            <option value="Business">Business</option>
+                            <option value="Humanities">Humanities</option>
+                        </select>
+                        <input type="text" id="searchInput" placeholder="Search student..." onkeyup="filterApplications()">
+                        <button class="btn btn-secondary" onclick="filterApplications()">Apply Filters</button>
+                    </div>
+
+                    <!-- Applications Table -->
+                    <table class="applications-table full-width">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>Student</th>
+                                <th>Institution</th>
+                                <th>Degree</th>
+                                <th>Score</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>Emily Davis</td>
+                                <td>Columbia</td>
+                                <td>Biology (PhD)</td>
+                                <td>81</td>
+                                <td><span class="badge approved">✅ Approved</span></td>
+                                <td><button class="btn-small">View</button></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>Sarah Williams</td>
+                                <td>Harvard</td>
+                                <td>Economics</td>
+                                <td>72</td>
+                                <td><span class="badge approved">✅ Approved</span></td>
+                                <td><button class="btn-small">View</button></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>Alex Johnson</td>
+                                <td>Berkeley</td>
+                                <td>Physics</td>
+                                <td>65</td>
+                                <td><span class="badge approved">✅ Approved</span></td>
+                                <td><button class="btn-small">View</button></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>Mike Brown</td>
+                                <td>UCLA</td>
+                                <td>History</td>
+                                <td>58</td>
+                                <td><span class="badge waitlisted">⏳ Waitlisted</span></td>
+                                <td><button class="btn-small">View</button></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>John Smith</td>
+                                <td>Stanford</td>
+                                <td>MBA</td>
+                                <td>45</td>
+                                <td><span class="badge rejected">❌ Rejected</span></td>
+                                <td><button class="btn-small">View</button></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>Jane Doe</td>
+                                <td>MIT</td>
+                                <td>CS (PhD)</td>
+                                <td>78</td>
+                                <td><span class="badge approved">✅ Approved</span></td>
+                                <td><button class="btn-small">View</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="pagination">
+                        <button class="btn-small">← Prev</button>
+                        <span>Page 1 of 50</span>
+                        <button class="btn-small">Next →</button>
+                    </div>
+
+                    <div class="bulk-actions">
+                        <button class="btn btn-secondary">Export CSV</button>
+                        <button class="btn btn-secondary">Bulk Approve</button>
+                        <button class="btn btn-secondary">Bulk Reject</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Configuration Tab -->
+            <div id="configuration" class="tab-content">
+                <div class="container">
+                    <h1>Configuration</h1>
+
+                    <!-- Cutoff Scores -->
+                    <div class="card">
+                        <h2>⚙️ Cutoff Scores by Degree Category</h2>
+                        <div class="config-form">
+                            <div class="config-row">
+                                <label>STEM:</label>
+                                <input type="number" value="60" min="0" max="100">
+                                <span>points</span>
+                            </div>
+                            <div class="config-row">
+                                <label>Business:</label>
+                                <input type="number" value="55" min="0" max="100">
+                                <span>points</span>
+                            </div>
+                            <div class="config-row">
+                                <label>Humanities:</label>
+                                <input type="number" value="50" min="0" max="100">
+                                <span>points</span>
+                            </div>
+                            <div class="config-row">
+                                <label>Arts:</label>
+                                <input type="number" value="45" min="0" max="100">
+                                <span>points</span>
+                            </div>
+                            <div class="config-row">
+                                <label>Other:</label>
+                                <input type="number" value="50" min="0" max="100">
+                                <span>points</span>
+                            </div>
+                        </div>
+                        <div class="button-group">
+                            <button class="btn btn-secondary">Reset to Defaults</button>
+                            <button class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </div>
+
+                    <!-- License Settings -->
+                    <div class="card">
+                        <h2>📅 License Settings</h2>
+                        <div class="config-form">
+                            <div class="config-row">
+                                <label>Default License Period:</label>
+                                <input type="number" value="90" min="1">
+                                <span>days</span>
+                            </div>
+                            <div class="config-row">
+                                <label>Max Extensions per License:</label>
+                                <input type="number" value="3" min="0">
+                            </div>
+                            <div class="config-row">
+                                <label>Max Total Extension Days:</label>
+                                <input type="number" value="90" min="0">
+                                <span>days</span>
+                            </div>
+                            <div class="config-row">
+                                <label>Extension Days per Report:</label>
+                                <input type="number" value="30" min="1">
+                                <span>days</span>
+                            </div>
+                        </div>
+                        <div class="button-group">
+                            <button class="btn btn-secondary">Reset to Defaults</button>
+                            <button class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </div>
+
+                    <!-- License Inventory -->
+                    <div class="card">
+                        <h2>📦 License Inventory</h2>
+                        <div class="config-form">
+                            <div class="config-row">
+                                <label>Total License Pool:</label>
+                                <input type="number" value="1000" min="1">
+                            </div>
+                        </div>
+                        <button class="btn btn-primary">Update Inventory</button>
+                    </div>
+
+                    <!-- Scoring Weights -->
+                    <div class="card">
+                        <h2>🎯 Scoring Weights</h2>
+                        <div class="config-form">
+                            <div class="config-row">
+                                <label>Degree Relevance:</label>
+                                <input type="number" value="30" min="0" max="100">
+                                <span>points (max)</span>
+                            </div>
+                            <div class="config-row">
+                                <label>Objective Quality:</label>
+                                <input type="number" value="25" min="0" max="100">
+                                <span>points (max)</span>
+                            </div>
+                            <div class="config-row">
+                                <label>Academic Standing:</label>
+                                <input type="number" value="20" min="0" max="100">
+                                <span>points (max)</span>
+                            </div>
+                            <div class="config-row">
+                                <label>Demonstrated Need:</label>
+                                <input type="number" value="15" min="0" max="100">
+                                <span>points (max)</span>
+                            </div>
+                            <div class="config-row">
+                                <label>Claude Familiarity:</label>
+                                <input type="number" value="10" min="0" max="100">
+                                <span>points (max)</span>
+                            </div>
+                        </div>
+                        <div class="button-group">
+                            <button class="btn btn-secondary">Reset to Defaults</button>
+                            <button class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

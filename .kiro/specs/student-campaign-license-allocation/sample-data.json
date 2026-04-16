@@ -1,0 +1,298 @@
+{
+  "students": [
+    {
+      "id": "STU-001",
+      "email": "jane.doe@mit.edu",
+      "name": "Jane Doe",
+      "institution": "Massachusetts Institute of Technology",
+      "institution_domain": "mit.edu",
+      "degree_program": "Computer Science",
+      "degree_level": "graduate",
+      "year": 2,
+      "financial_aid": true,
+      "first_generation": false,
+      "created_at": "2025-01-10T08:30:00Z"
+    },
+    {
+      "id": "STU-002",
+      "email": "john.smith@stanford.edu",
+      "name": "John Smith",
+      "institution": "Stanford University",
+      "institution_domain": "stanford.edu",
+      "degree_program": "Business Administration",
+      "degree_level": "graduate",
+      "year": 1,
+      "financial_aid": false,
+      "first_generation": true,
+      "created_at": "2025-01-11T10:15:00Z"
+    },
+    {
+      "id": "STU-003",
+      "email": "alex.johnson@berkeley.edu",
+      "name": "Alex Johnson",
+      "institution": "University of California, Berkeley",
+      "institution_domain": "berkeley.edu",
+      "degree_program": "Physics",
+      "degree_level": "undergraduate",
+      "year": 4,
+      "financial_aid": true,
+      "first_generation": true,
+      "created_at": "2025-01-12T14:45:00Z"
+    },
+    {
+      "id": "STU-004",
+      "email": "sarah.williams@harvard.edu",
+      "name": "Sarah Williams",
+      "institution": "Harvard University",
+      "institution_domain": "harvard.edu",
+      "degree_program": "Economics",
+      "degree_level": "undergraduate",
+      "year": 3,
+      "financial_aid": false,
+      "first_generation": false,
+      "created_at": "2025-01-13T09:20:00Z"
+    },
+    {
+      "id": "STU-005",
+      "email": "mike.brown@ucla.edu",
+      "name": "Mike Brown",
+      "institution": "University of California, Los Angeles",
+      "institution_domain": "ucla.edu",
+      "degree_program": "History",
+      "degree_level": "undergraduate",
+      "year": 2,
+      "financial_aid": true,
+      "first_generation": false,
+      "created_at": "2025-01-14T11:00:00Z"
+    },
+    {
+      "id": "STU-006",
+      "email": "emily.davis@columbia.edu",
+      "name": "Emily Davis",
+      "institution": "Columbia University",
+      "institution_domain": "columbia.edu",
+      "degree_program": "Molecular Biology",
+      "degree_level": "graduate",
+      "year": 1,
+      "financial_aid": true,
+      "first_generation": true,
+      "created_at": "2025-01-15T13:30:00Z"
+    }
+  ],
+  "applications": [
+    {
+      "id": "APP-001",
+      "student_id": "STU-001",
+      "degree_program": "Computer Science",
+      "degree_category": "STEM",
+      "objective": "I plan to use Claude to assist with my research on natural language processing and machine learning. Specifically, I want to leverage Claude's capabilities to help me understand complex NLP concepts, debug my code, and generate test cases for my thesis project on sentiment analysis using transformer models.",
+      "objective_category": "Thesis",
+      "prior_claude_usage": "moderate",
+      "status": "approved",
+      "score_total": 78,
+      "score_breakdown": {
+        "degree_relevance": 30,
+        "objective_quality": 22,
+        "academic_standing": 20,
+        "demonstrated_need": 4,
+        "claude_familiarity": 7
+      },
+      "cutoff_score_used": 60,
+      "created_at": "2025-01-10T08:35:00Z",
+      "scored_at": "2025-01-10T09:00:00Z",
+      "decided_at": "2025-01-10T09:05:00Z"
+    },
+    {
+      "id": "APP-002",
+      "student_id": "STU-002",
+      "degree_program": "Business Administration",
+      "degree_category": "Business",
+      "objective": "I want to use Claude to help with my MBA coursework and case studies.",
+      "objective_category": "Coursework",
+      "prior_claude_usage": "none",
+      "status": "rejected",
+      "score_total": 45,
+      "score_breakdown": {
+        "degree_relevance": 25,
+        "objective_quality": 8,
+        "academic_standing": 12,
+        "demonstrated_need": 0,
+        "claude_familiarity": 0
+      },
+      "cutoff_score_used": 55,
+      "created_at": "2025-01-11T10:20:00Z",
+      "scored_at": "2025-01-11T10:45:00Z",
+      "decided_at": "2025-01-11T10:50:00Z"
+    },
+    {
+      "id": "APP-003",
+      "student_id": "STU-003",
+      "degree_program": "Physics",
+      "degree_category": "STEM",
+      "objective": "I am conducting research on quantum computing and want to use Claude to help me understand quantum algorithms, review research papers, and brainstorm solutions to complex physics problems. My project involves simulating quantum circuits and I need assistance with both theoretical understanding and implementation details.",
+      "objective_category": "Research",
+      "prior_claude_usage": "beginner",
+      "status": "approved",
+      "score_total": 65,
+      "score_breakdown": {
+        "degree_relevance": 30,
+        "objective_quality": 18,
+        "academic_standing": 12,
+        "demonstrated_need": 8,
+        "claude_familiarity": 4
+      },
+      "cutoff_score_used": 60,
+      "created_at": "2025-01-12T14:50:00Z",
+      "scored_at": "2025-01-12T15:15:00Z",
+      "decided_at": "2025-01-12T15:20:00Z"
+    },
+    {
+      "id": "APP-004",
+      "student_id": "STU-004",
+      "degree_program": "Economics",
+      "degree_category": "Business",
+      "objective": "I want to use Claude for my senior thesis on behavioral economics and market analysis. I plan to use it to help analyze economic data, understand complex theories, and write my thesis. Claude can help me think through economic concepts and provide feedback on my analysis.",
+      "objective_category": "Thesis",
+      "prior_claude_usage": "moderate",
+      "status": "approved",
+      "score_total": 72,
+      "score_breakdown": {
+        "degree_relevance": 25,
+        "objective_quality": 20,
+        "academic_standing": 15,
+        "demonstrated_need": 7,
+        "claude_familiarity": 7
+      },
+      "cutoff_score_used": 55,
+      "created_at": "2025-01-13T09:25:00Z",
+      "scored_at": "2025-01-13T09:50:00Z",
+      "decided_at": "2025-01-13T09:55:00Z"
+    },
+    {
+      "id": "APP-005",
+      "student_id": "STU-005",
+      "degree_program": "History",
+      "degree_category": "Humanities",
+      "objective": "I am writing my junior thesis on the history of technology and want to use Claude to help me research, organize my thoughts, and improve my writing. I need assistance understanding complex historical concepts and connecting them to modern technology trends.",
+      "objective_category": "Thesis",
+      "prior_claude_usage": "beginner",
+      "status": "waitlisted",
+      "score_total": 58,
+      "score_breakdown": {
+        "degree_relevance": 20,
+        "objective_quality": 16,
+        "academic_standing": 12,
+        "demonstrated_need": 8,
+        "claude_familiarity": 4
+      },
+      "cutoff_score_used": 50,
+      "created_at": "2025-01-14T11:05:00Z",
+      "scored_at": "2025-01-14T11:30:00Z",
+      "decided_at": "2025-01-14T11:35:00Z"
+    },
+    {
+      "id": "APP-006",
+      "student_id": "STU-006",
+      "degree_program": "Molecular Biology",
+      "degree_category": "STEM",
+      "objective": "I am conducting graduate research on protein folding and want to use Claude to help me understand complex biological concepts, analyze research literature, debug my Python code for molecular simulations, and brainstorm experimental approaches. This will significantly accelerate my research progress.",
+      "objective_category": "Research",
+      "prior_claude_usage": "experienced",
+      "status": "approved",
+      "score_total": 81,
+      "score_breakdown": {
+        "degree_relevance": 30,
+        "objective_quality": 25,
+        "academic_standing": 20,
+        "demonstrated_need": 8,
+        "claude_familiarity": 10
+      },
+      "cutoff_score_used": 60,
+      "created_at": "2025-01-15T13:35:00Z",
+      "scored_at": "2025-01-15T14:00:00Z",
+      "decided_at": "2025-01-15T14:05:00Z"
+    }
+  ],
+  "licenses": [
+    {
+      "id": "LIC-001",
+      "application_id": "APP-001",
+      "student_id": "STU-001",
+      "claude_license_key": "CLAUDE-STU-2025-ABC123",
+      "start_date": "2025-01-20",
+      "expiration_date": "2025-04-20",
+      "extensions_granted": 0,
+      "total_extension_days": 0,
+      "status": "active",
+      "created_at": "2025-01-20T10:00:00Z",
+      "updated_at": "2025-01-20T10:00:00Z"
+    },
+    {
+      "id": "LIC-003",
+      "application_id": "APP-003",
+      "student_id": "STU-003",
+      "claude_license_key": "CLAUDE-STU-2025-DEF456",
+      "start_date": "2025-01-22",
+      "expiration_date": "2025-04-22",
+      "extensions_granted": 0,
+      "total_extension_days": 0,
+      "status": "active",
+      "created_at": "2025-01-22T10:00:00Z",
+      "updated_at": "2025-01-22T10:00:00Z"
+    },
+    {
+      "id": "LIC-004",
+      "application_id": "APP-004",
+      "student_id": "STU-004",
+      "claude_license_key": "CLAUDE-STU-2025-GHI789",
+      "start_date": "2025-01-23",
+      "expiration_date": "2025-04-23",
+      "extensions_granted": 0,
+      "total_extension_days": 0,
+      "status": "active",
+      "created_at": "2025-01-23T10:00:00Z",
+      "updated_at": "2025-01-23T10:00:00Z"
+    },
+    {
+      "id": "LIC-006",
+      "application_id": "APP-006",
+      "student_id": "STU-006",
+      "claude_license_key": "CLAUDE-STU-2025-JKL012",
+      "start_date": "2025-01-25",
+      "expiration_date": "2025-04-25",
+      "extensions_granted": 0,
+      "total_extension_days": 0,
+      "status": "active",
+      "created_at": "2025-01-25T10:00:00Z",
+      "updated_at": "2025-01-25T10:00:00Z"
+    }
+  ],
+  "progress_reports": [
+    {
+      "id": "PR-001",
+      "license_id": "LIC-001",
+      "description": "I have successfully used Claude to help me understand transformer architectures and debug my sentiment analysis model. I created a comprehensive test suite with Claude's assistance, achieving 92% accuracy on my validation dataset. The model is now ready for thesis submission.",
+      "claude_usage_examples": "Used Claude to explain attention mechanisms, reviewed my code for bugs, generated edge case test scenarios",
+      "outcomes": "Completed sentiment analysis model with 92% accuracy, wrote 50-page thesis chapter, published preliminary results",
+      "status": "approved",
+      "submitted_at": "2025-04-10T14:30:00Z",
+      "reviewed_at": "2025-04-11T10:00:00Z",
+      "reviewer_id": "ADMIN-001",
+      "extension_days_granted": 30
+    }
+  ],
+  "statistics": {
+    "total_applications": 1247,
+    "approved": 892,
+    "rejected": 289,
+    "waitlisted": 66,
+    "total_licenses_allocated": 892,
+    "active_licenses": 845,
+    "expired_licenses": 47,
+    "available_licenses": 108,
+    "total_license_pool": 1000,
+    "average_score": 62.4,
+    "median_score": 58,
+    "std_dev_score": 15.2
+  }
+}

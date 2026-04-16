@@ -1,0 +1,88 @@
+================================================================================
+QUICK INSTALLATION GUIDE
+================================================================================
+
+OPTION 1: AUTOMATED (Recommended)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  python setup.py
+  python app.py
+
+Then open: http://localhost:5000
+
+================================================================================
+
+OPTION 2: MINIMAL (Fast)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  pip install -r requirements-minimal.txt
+  python app.py
+
+Then open: http://localhost:5000
+
+================================================================================
+
+OPTION 3: MANUAL (Step-by-step)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  pip install Flask>=2.0.0
+  pip install Flask-CORS>=3.0.0
+  pip install SQLAlchemy>=1.4.0
+  pip install python-dotenv>=0.19.0
+  python app.py
+
+Then open: http://localhost:5000
+
+================================================================================
+
+OPTION 4: WIREFRAME ONLY (No backend needed)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  python serve_static.py
+
+Then open: http://localhost:8000
+
+================================================================================
+
+TROUBLESHOOTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+If pip install fails:
+  1. Try: pip install -r requirements-minimal.txt
+  2. Try: python setup.py
+  3. See: TROUBLESHOOTING.md
+
+If Flask won't start:
+  1. Check port 5000 is free
+  2. Check all packages installed
+  3. See: TROUBLESHOOTING.md
+
+If API not responding:
+  1. Check Flask is running
+  2. Check browser console (F12)
+  3. See: TROUBLESHOOTING.md
+
+================================================================================
+
+DOCUMENTATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  INSTALL_OPTIONS.md      - All installation options
+  INSTALLATION_HELP.md    - Detailed help
+  TROUBLESHOOTING.md      - Common issues
+  START_HERE.md           - Quick start
+  QUICK_REFERENCE.md      - Quick lookup
+
+================================================================================
+
+RECOMMENDED: Try Option 1 or 2 first!
+
+Option 1 (Automated):
+  python setup.py
+  python app.py
+
+Option 2 (Minimal):
+  pip install -r requirements-minimal.txt
+  python app.py
+
+================================================================================
